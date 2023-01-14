@@ -38,6 +38,7 @@ class MainActivity : AppCompatActivity() {
         binding.btnNext.setOnClickListener {
             if (binding.inputName.text.isNotEmpty()){
                 val intent = Intent(this, SecondActivity::class.java)
+                intent.putExtra("name", binding.inputName.text.toString())
                 startActivity(intent)
             }else{
                 binding.inputName.error = error
@@ -81,6 +82,7 @@ class MainActivity : AppCompatActivity() {
         } else {
             textResult.text = "Not Polindrome"
             animation.setAnimation(R.raw.wrong)
+            animation.speed = 2F
         }
 
         word.text = "\"$text\""
